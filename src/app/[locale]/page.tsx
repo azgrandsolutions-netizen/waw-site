@@ -1,4 +1,4 @@
-// src/app/[locale]/page.tsx
+// Pagină simplă ca să existe conținut pe /ro și să nu mai dea 404
 type Props = { params: Promise<{ locale: string }> };
 
 export default async function LocaleHome(props: Props) {

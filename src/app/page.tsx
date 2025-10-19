@@ -1,7 +1,6 @@
-﻿// src/app/page.tsx
+﻿// Redirect server-side: /  ->  /ro
 import { redirect } from "next/navigation";
 
 export default function RootRedirect() {
-  // dacă vrei autodetect ulterior, îl mutăm în middleware.
   redirect("/ro");
 }
