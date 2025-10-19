@@ -1,44 +1,21 @@
 // src/app/layout.tsx
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "WAW — Site",
-  description: "Next.js 15 — Consent Mode v2, Basic Auth, Tailwind.",
+  description: "Root layout minimal pentru izolare erori",
 };
-
-const CONSENT_SNIPPET = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
-  });
-`;
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Root layout trebuie să returneze obligatoriu <html><body> în App Router
   return (
-    <html lang="ro" translate="no" suppressHydrationWarning>
-      <head>
-        <meta name="google" content="notranslate" />
-        <script
-          id="consent-default"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: CONSENT_SNIPPET }}
-        />
-      </head>
-      <body
-        className="min-h-screen bg-white antialiased"
-        suppressHydrationWarning
-      >
-        {children}
-      </body>
+    <html lang="ro">
+      <body>{children}</body>
     </html>
   );
 }
