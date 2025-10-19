@@ -1,6 +1,6 @@
 // src/app/[locale]/page.tsx
 export default function LocaleHome() {
-  const locale = "ro"; // simplu deocamdată
+  const locale = "ro"; // simplu, fără handlers => Server Component valid
 
   const links = [
     { href: `/${locale}/despre`, label: "Despre noi" },
@@ -49,17 +49,6 @@ export default function LocaleHome() {
               padding: "14px 16px",
               textDecoration: "none",
               fontWeight: 600,
-              transition: "box-shadow .2s, transform .2s",
-            }}
-            onMouseOver={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-                "0 8px 24px rgba(0,0,0,.08)";
-              (e.currentTarget as HTMLAnchorElement).style.transform =
-                "translateY(-1px)";
-            }}
-            onMouseOut={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
-              (e.currentTarget as HTMLAnchorElement).style.transform = "none";
             }}
           >
             {l.label} →
