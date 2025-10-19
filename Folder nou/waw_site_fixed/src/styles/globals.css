@@ -1,0 +1,141 @@
+/* src/styles/globals.css */
+
+/* Tailwind v4 recomandă un singur import */
+@import "tailwindcss";
+
+/* Design tokens cu variabile CSS */
+:root {
+  --color-background: 255 255 255;
+  --color-text: 17 24 39;
+  --color-muted: 107 114 128;
+
+  /* Brand */
+  --color-primary: 37 99 235;
+  --color-primary-foreground: 255 255 255;
+
+  /* Urgențe */
+  --color-urgent: 220 38 38;
+  --color-urgent-foreground: 255 255 255;
+
+  /* Borduri și suprafețe */
+  --color-border: 229 231 235;
+  --color-card: 255 255 255;
+  --color-card-foreground: 17 24 39;
+}
+
+/* Bază globală */
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(var(--color-primary) / 0.18);
+}
+
+/* Linkuri */
+a {
+  color: rgb(var(--color-primary));
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Elemente de form cu stil de bază coerent */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input:not([type]),
+textarea,
+select {
+  outline: none;
+  background-color: #fff;
+  border: 1px solid rgb(var(--color-border));
+  color: rgb(var(--color-text));
+  width: 100%;
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 0.75rem; /* p-3 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(var(--color-muted));
+}
+
+/* Focus vizibil accesibil */
+:focus-visible {
+  outline: 2px solid rgba(var(--color-primary) / 0.6);
+  outline-offset: 2px;
+}
+
+/* Card generic */
+.card {
+  background-color: rgb(var(--color-card));
+  color: rgb(var(--color-card-foreground));
+  border: 1px solid rgb(var(--color-border));
+  border-radius: 1rem;
+}
+
+/* Utilități simple pe variabile. Le folosim unde e nevoie în JSX */
+.text-text {
+  color: rgb(var(--color-text));
+}
+
+.bg-primary {
+  background-color: rgb(var(--color-primary));
+  color: rgb(var(--color-primary-foreground));
+}
+
+.bg-urgent {
+  background-color: rgb(var(--color-urgent));
+  color: rgb(var(--color-urgent-foreground));
+}
+
+.border-default {
+  border-color: rgb(var(--color-border));
+}
+
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Butoane simple fără @apply */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600; /* font-semibold */
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 0.75rem 1.25rem; /* px-5 py-3 */
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.btn-primary {
+  composes: btn; /* Notă. dacă editorul nu suportă composes, lasă doar clasa .btn în JSX împreună cu .bg-primary */
+  background-color: rgb(var(--color-primary));
+  color: rgb(var(--color-primary-foreground));
+}
+.btn-primary:hover {
+  background-color: rgb(29 78 216); /* blue-700 */
+}
+
+/* Textarea cu aceeași estetică */
+.textarea {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--color-border));
+  background-color: #fff;
+  padding: 0.75rem;
+}

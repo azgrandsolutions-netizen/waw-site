@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variabile CSS pentru culori de fundal/text implicit (ușor de schimbat global) */
+:root {
+  --bg: #ffffff;
+  --fg: #111827; /* gray-900 */
+  --muted: #6b7280; /* gray-500 */
+  --card: #ffffff;
+  --border: #e5e7eb; /* gray-200 */
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Tipografie rapidă */
+.prose-title {
+  @apply text-display;
+}
+.prose-lead {
+  @apply text-lg text-gray-600;
+}
+
+/* Utilitare */
+.card {
+  @apply rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] shadow-soft;
+}
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition;
+}
+.btn-primary {
+  @apply bg-brand text-white hover:brightness-95;
+}
+.btn-outline {
+  @apply border border-gray-300 hover:bg-gray-50;
+}
+.badge {
+  @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs;
+}

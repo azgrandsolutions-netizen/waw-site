@@ -1,0 +1,22 @@
+# Env (nu folosim acum, dar e bine să fie)
+.env
+.env.local
+.env.*.local
+
+# Next
+.next
+out
+.vercel
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+.idea
