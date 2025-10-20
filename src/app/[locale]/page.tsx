@@ -1,69 +1,36 @@
 ﻿import Hero from "@/components/Hero";
-import WhyUs from "@/components/WhyUs";
+import Services from "@/components/Services";
 import LeadFormMini from "@/components/LeadFormMini";
 
-// src/app/[locale]/page.tsx
-export default function LocaleHome() {
-  const locale = "ro"; // Server Component
-
-  const links = [
-    { href: "/" + locale + "/despre", label: "Despre noi" },
-    { href: "/" + locale + "/servicii", label: "Servicii" },
-    { href: "/" + locale + "/projecten", label: "Proiecte" },
-    { href: "/" + locale + "/oferta", label: "Ofertă" },
-    { href: "/" + locale + "/urgente", label: "Urgențe 24/7" },
-    { href: "/" + locale + "/contact", label: "Contact" },
-  ];
+export default async function Page({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const locale = params.locale || "ro";
 
   return (
-    <main style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto" }}>
+    <main className="mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-12">
+      {/* HERO */}
       <Hero />
 
-      <section style={{ marginBottom: "2rem" }}>
-        <p style={{ opacity: 0.75, margin: 0 }}>WAW / AZGS</p>
-        <h1
-          style={{
-            fontSize: "2.2rem",
-            lineHeight: 1.2,
-            margin: "0.25rem 0 0.5rem",
-          }}
-        >
-          Servicii tehnice integrate — {locale.toUpperCase()}
-        </h1>
-        <p style={{ fontSize: "1.05rem", opacity: 0.9 }}>
-          Intervenții rapide, mentenanță părți comune, renovări interioare,
-          execuții complete.
-        </p>
-      </section>
+      {/* SERVICII */}
+      <Services />
 
-      <nav
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-          gap: "12px",
-          marginBottom: "2rem",
-        }}
+      {/* FORMULAR CONTACT */}
+      <section
+        id="contact"
+        className="rounded-2xl border bg-white/60 p-6 shadow-sm sm:p-10"
       >
-        {links.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            style={{
-              display: "block",
-              border: "1px solid #e5e7eb",
-              borderRadius: 14,
-              padding: "14px 16px",
-              textDecoration: "none",
-              fontWeight: 600,
-            }}
-          >
-            {l.label} →
-          </a>
-        ))}
-      </nav>
-
-      <WhyUs />
-      <LeadFormMini />
+        <h2 className="text-2xl font-semibold">Cere ofertă</h2>
+        <p className="mt-2 max-w-2xl text-gray-600">
+          Completează formularul și te contactăm în 24 de ore cu o estimare
+          gratuită.
+        </p>
+        <div className="mt-6 max-w-xl">
+          <LeadFormMini />
+        </div>
+      </section>
     </main>
   );
 }
