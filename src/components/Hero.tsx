@@ -1,101 +1,66 @@
 ﻿"use client";
-import React from "react";
+
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Hero() {
+  const [ctaLoading, setCtaLoading] = useState(false);
+
   return (
-    <section
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: 18,
-        padding: "28px 24px",
-        background:
-          "radial-gradient(800px 300px at 20% 0%, rgba(0,0,0,0.9), rgba(0,0,0,0.65)), linear-gradient(135deg, #0f172a, #111827)",
-        color: "white",
-        marginBottom: "24px"
-      }}
-    >
+    <section className="relative overflow-hidden rounded-2xl border bg-white/60 p-6 shadow-sm sm:p-10">
+      {/* fundal decorativ simplu */}
       <div
         aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          opacity: 0.18,
-          background:
-            "radial-gradient(400px 180px at 80% 10%, rgba(255,255,255,0.6), transparent)"
-        }}
+        className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 blur-3xl"
       />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <span
-          style={{
-            display: "inline-block",
-            fontSize: 12,
-            letterSpacing: 1,
-            padding: "6px 10px",
-            borderRadius: 999,
-            border: "1px solid rgba(255,255,255,0.2)",
-            background: "rgba(255,255,255,0.06)"
-          }}
-        >
-          WAW • Echipe certificate • 24/7
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-4xl text-center">
+        <span className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium tracking-wide">
+          WAW • Renovări & Mentenanță rapidă
         </span>
-        <h1
-          style={{
-            fontSize: "2.2rem",
-            lineHeight: 1.2,
-            margin: "12px 0 8px",
-            fontWeight: 700
-          }}
-        >
-          Servicii tehnice integrate pentru clădiri și spații comerciale
+
+        <h1 className="mt-5 text-3xl font-semibold leading-tight sm:text-5xl">
+          Reparații rapide, finisaje curate, <span className="whitespace-nowrap">fără bătăi de cap</span>
         </h1>
-        <p style={{ opacity: 0.9, fontSize: "1.05rem", marginBottom: 14 }}>
-          Intervenții rapide, mentenanță părți comune, renovări interioare —
-          execuție la timp, la buget, fără surprize.
+
+        <p className="mx-auto mt-4 max-w-2xl text-balance text-sm text-gray-600 sm:text-base">
+          Intervenții pentru părți comune ale clădirilor, renovări interioare și management complet al lucrării.
+          Estimare gratuită în 24h și programare prioritizată.
         </p>
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
-          <a href="/ro/oferta"
-            style={{
-              textDecoration: "none",
-              fontWeight: 600,
-              padding: "10px 14px",
-              borderRadius: 14,
-              border: "1px solid rgba(255,255,255,0.22)",
-              background: "white",
-              color: "#0f172a",
-              boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
-              display: "inline-block"
-            }}
+
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="#contact"
+            onClick={() => setCtaLoading(true)}
+            className="inline-flex items-center justify-center rounded-2xl bg-black px-5 py-3 text-white shadow transition hover:opacity-90 active:translate-y-px"
           >
-            Cere ofertă
-          </a>
-          <a href="/ro/servicii"
-            style={{
-              textDecoration: "none",
-              fontWeight: 600,
-              padding: "10px 14px",
-              borderRadius: 14,
-              border: "1px solid rgba(255,255,255,0.22)",
-              color: "white",
-              background: "transparent",
-              display: "inline-block"
-            }}
+            {ctaLoading ? "Se deschide..." : "Cere ofertă acum"}
+          </Link>
+
+          <a
+            href="https://wa.me/31600000000"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center rounded-2xl border px-5 py-3 font-medium shadow-sm hover:bg-gray-50"
           >
-            Vezi servicii →
+            WhatsApp direct
           </a>
         </div>
-        <ul
-          style={{
-            marginTop: 8,
-            paddingLeft: 18,
-            lineHeight: 1.6,
-            color: "rgba(255,255,255,0.85)",
-            fontSize: 14
-          }}
-        >
-          <li>Răspuns în &lt; 2 ore în zile lucrătoare</li>
-          <li>Ofertare transparentă și garanție la lucrare</li>
-          <li>Echipă completă: instalații, electric, finisaje, management</li>
+
+        <ul className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-2 text-left text-sm text-gray-600 sm:grid-cols-3">
+          <li className="rounded-xl border bg-white/70 px-3 py-2">
+            ✅ Intervenții în 24–48h
+          </li>
+          <li className="rounded-xl border bg-white/70 px-3 py-2">
+            ✅ Echipe proprii, asigurat
+          </li>
+          <li className="rounded-xl border bg-white/70 px-3 py-2">
+            ✅ Factură & garanție lucrări
+          </li>
         </ul>
       </div>
     </section>

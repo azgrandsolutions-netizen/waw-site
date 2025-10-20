@@ -1,57 +1,30 @@
 "use client";
-import React from "react";
 
 export default function Footer() {
-  return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <div>
-            <div className="text-lg font-semibold text-slate-900">WAW</div>
-            <p className="mt-2 text-sm text-slate-600">
-              Servicii tehnice integrate în Olanda. Mentenanță, renovări,
-              instalații.
-            </p>
-          </div>
-          <div>
-            <div className="text-sm font-semibold uppercase tracking-wide text-slate-900">
-              Contact
-            </div>
-            <ul className="mt-3 space-y-1 text-sm text-slate-600">
-              <li>Telefon: +31 ••• ••• •••</li>
-              <li>Email: office@waw-site.nl</li>
-              <li>Program: Luni–Vineri, 08:00–18:00</li>
-            </ul>
-          </div>
-          <div>
-            <div className="text-sm font-semibold uppercase tracking-wide text-slate-900">
-              Link-uri
-            </div>
-            <ul className="mt-3 space-y-1 text-sm text-slate-600">
-              <li>
-                <a className="hover:text-slate-900" href="#services">
-                  Servicii
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-slate-900" href="#lead-form-mini">
-                  Cere ofertă
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-slate-900" href="#">
-                  Termeni & Politici
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+  const year = new Date().getFullYear();
 
-        <div className="mt-8 flex items-center justify-between border-t border-slate-200 pt-6 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} WAW. Toate drepturile rezervate.</p>
-          <p>Construit cu Next.js</p>
-        </div>
+  return (
+    <footer className="mt-10 rounded-2xl border bg-white/60 p-6 text-center text-sm text-gray-600 shadow-sm sm:mt-16 sm:p-10">
+      <p className="font-medium text-gray-800">© {year} WAW Services</p>
+      <p className="mt-1 text-gray-600">
+        Soluții tehnice integrate • Renovări • Mentenanță rapidă
+      </p>
+
+      <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs text-gray-500">
+        <a href="/privacy" className="hover:text-gray-800">
+          Politica de confidențialitate
+        </a>
+        <a href="/cookies" className="hover:text-gray-800">
+          Cookies
+        </a>
+        <a href="/termeni" className="hover:text-gray-800">
+          Termeni și condiții
+        </a>
       </div>
+
+      <p className="mt-4 text-xs text-gray-400">
+        Website realizat de AZGS Digital • www.azgs.nl
+      </p>
     </footer>
   );
 }
